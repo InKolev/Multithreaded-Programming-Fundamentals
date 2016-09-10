@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Async.Introduction.Properties
+namespace II.FreezeUI.Properties
 {
 
 
