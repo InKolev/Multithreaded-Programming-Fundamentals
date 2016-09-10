@@ -11,7 +11,8 @@ namespace Multiple.Tasks.Multiple.Cores
 {
     public class Startup
     {
-        public const int LogicalCoresCount = 8;
+        // Test with 1,2,4,8 tasks
+        public const int LogicalCoresCount = 6;
 
         static void Main(string[] args)
         {
@@ -71,7 +72,7 @@ namespace Multiple.Tasks.Multiple.Cores
         {
             var sum = default(BigInteger);
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
                 for (int j = 0; j < 1000000; j++)
                 {

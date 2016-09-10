@@ -7,8 +7,8 @@
     <ProjectGuid>{A8FF7D4D-C85C-459D-94D6-569C6B02DCF0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Multiple.Tasks.Multiple.Cores</RootNamespace>
-    <AssemblyName>Multiple.Tasks.Multiple.Cores</AssemblyName>
+    <RootNamespace>I.Multiple.Tasks.Multiple.Cores</RootNamespace>
+    <AssemblyName>I.Multiple.Tasks.Multiple.Cores</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
