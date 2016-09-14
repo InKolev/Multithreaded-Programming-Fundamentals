@@ -39,7 +39,8 @@
 <!-- section start -->
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - III
-- [Synchronizing Threads](#synchronizingThreads)
+- [Race condition](#raceCondition)
+- [Synchronizing threads](#synchronizingThreads)
 - [Blocking Threads](#blockingThreads)
 - [Sleeping and Spinning Threads](#sleepingAndSpinning)
 - [Joining a Thread](#joiningThreads)
