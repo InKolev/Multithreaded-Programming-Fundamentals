@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I.Multiple.Tasks.Multiple.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "II.FreezeUI", "II.FreezeUI\II.FreezeUI.csproj", "{8A028D12-6C23-4FB8-ADAF-1F2B25529A3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awaiting.Tasks", "Awaiting.Tasks\Awaiting.Tasks.csproj", "{830B54DD-A88E-45A7-B88A-2748005CDF42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "III.Awaiting.Tasks", "III.Awaiting.Tasks\III.Awaiting.Tasks.csproj", "{830B54DD-A88E-45A7-B88A-2748005CDF42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

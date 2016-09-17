@@ -1,7 +1,7 @@
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-title', showInPresentation:true, hasScriptWrapper:true } -->
 # Multithreaded programming: Fundamentals
-## Brief overview and concepts, Creating and starting threads, Thread synchronization, Locking shared resources
+## Brief overview and concepts, Creating and starting threads, Threads synchronization, Locking shared resources, Thread states
 
 <div class="signature">
 	<p class="signature-course">Multithreaded programming</p>
@@ -12,6 +12,11 @@
 
 
 <!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Table of Contents
+## What will we cover?
+
+
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - I
 - [Brief overview and concepts](#overview)
@@ -22,8 +27,6 @@
 
 
 
-
-<!-- section start -->
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - II
 - [Creating and Starting threads](#creatingAndStartingThreads)
@@ -36,7 +39,6 @@
 
 
 
-<!-- section start -->
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - III
 - [Race condition](#raceCondition)
@@ -46,49 +48,72 @@
 - [Joining a Thread](#joiningThreads)
 - [The "volatile" keyword](#volatileKeyword)
 - [Interrupt and Abort](#interruptAndAbort)
+- [Locking shared resources](#lockingSharedResources)
 
 
-<!-- section start -->
+
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - IV
 - [Thread States](#threadStates)
-- [Unstarted](#unstartedState)
-- [Running](#runningState)
-- [Blocked](#blockedState)
-- [Interrupted](#interruptedState)
-- [Stopped/StopRequested](#stoppedState)
-- [Suspended/SuspendRequested](#suspendedState)
-- [Aborted/AbortRequested](#abortedState)
-- [Background](#isBackgroundState)
+	- [Unstarted](#unstartedState)
+	- [Running](#runningState)
+	- [Blocked](#blockedState)
+	- [Interrupted](#interruptedState)
+	- [Stopped/StopRequested](#stoppedState)
+	- [Suspended/SuspendRequested](#suspendedState)
+	- [Aborted/AbortRequested](#abortedState)
+	- [Background](#isBackgroundState)
+
 
 
 <!-- section start -->
+<!-- attr: { id:'overview', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# <a id="overview"></a> Brief overview
+## Understanding asynchronous and <br/> parallel work
+
+
+
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
-# Table of Contents - IV
+# Overview and Concepts
+**Firefighters Rescue Team** example:  
+ - Single firefighter, single victim (_**Trivial**_)  
+ - Many firefighters, single victim (_**Parallel**_)  
+ - Single firefighter, many victims (_**Two ways to deal with the problem**_)
+	 - Fully saving the **first** victim, then the **second** one, then the **n-th** one... (_**Synchronous**_)  
+	 - Help a single victim for a **given time**, then **switch to help** another. Repeat until all of the victims are safe (_**Asynchronous**_)    
+
+
+
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# <a id=""></a> Sum of all numbers in a given interval
+## [Demo:]()
 
 
 <!-- section start -->
-<!-- attr: { id:'nextsteps', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-<!-- # <a id="nextsteps"></a> Example -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 
-ЕКип от пожарникари, много пожарникари, един затрупан.
-Един пожарникар, двама затрупани.
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 
-<!-- <img class="slide-image" showInPresentation="true" src="imgs\pic06.png" style="top:42%; left:31%; width:42.31%; z-index:-1; border: 1px solid white; border-radius: 5px;" /> -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 
 
 
-<!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
-# C# Track Objectives
-- The **C# Programming** track at the Academy:
-  - Give the trainees the **fundamental** computer programming knowledge and skills
-  - Establish the logical and **algorithmic thinking**
-    - Development of **problems solving** skills
-  - Learn basic **data structures**, **algorithms** and object-oriented programming (**OOP**) concepts
-  - Learn to produce **high-quality code**
-  - **Prepare** for learning the software technologies
-    - HTML5, DB & SQL, Cloud, Web, Mobile, QA, …
 
+
+
+
+
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+- Single processor core, single interval (**Trivial**)
+- Many processor cores, single interval (**Parallel**)
+- Single processor core, many intervals (**Two ways to deal with the problem**)
+	- Sum the numbers from the first interval, then from the second, then from the n-th... (**Synchronous**)
+	- Sum the numbers from an interval for a **given time**, then **switch to serve another. Repeat till done. (**Asynchronous**)
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Free Trainings @ Telerik Academy
