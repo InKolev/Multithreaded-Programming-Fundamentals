@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I.Multiple.Tasks.Multiple.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "II.FreezeUI", "II.FreezeUI\II.FreezeUI.csproj", "{8A028D12-6C23-4FB8-ADAF-1F2B25529A3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awaiting.Tasks", "Awaiting.Tasks\Awaiting.Tasks.csproj", "{830B54DD-A88E-45A7-B88A-2748005CDF42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8A028D12-6C23-4FB8-ADAF-1F2B25529A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A028D12-6C23-4FB8-ADAF-1F2B25529A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A028D12-6C23-4FB8-ADAF-1F2B25529A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830B54DD-A88E-45A7-B88A-2748005CDF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830B54DD-A88E-45A7-B88A-2748005CDF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830B54DD-A88E-45A7-B88A-2748005CDF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830B54DD-A88E-45A7-B88A-2748005CDF42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
