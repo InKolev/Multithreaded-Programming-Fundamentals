@@ -69,7 +69,10 @@
 
 <!-- section start -->
 <!-- attr: { id:'nextsteps', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-<!-- # <a id="nextsteps"></a> High-Quality Code -->
+<!-- # <a id="nextsteps"></a> Example -->
+
+ЕКип от пожарникари, много пожарникари, един затрупан.
+Един пожарникар, двама затрупани.
 
 <!-- <img class="slide-image" showInPresentation="true" src="imgs\pic06.png" style="top:42%; left:31%; width:42.31%; z-index:-1; border: 1px solid white; border-radius: 5px;" /> -->
 
