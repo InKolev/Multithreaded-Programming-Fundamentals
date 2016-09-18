@@ -1,94 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace I.Sum.Problem
 {
     public class Startup
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            var processorsCount = Environment.ProcessorCount;
-            var tasks = new List<Task>(processorsCount);
-            var ranges = GetRanges(Environment.ProcessorCount);
+            var coresCount = Environment.ProcessorCount;
+
+            // Build array
+            var arraySize = 500000;
+            var array = GetArray(arraySize);
 
             // Run N tasks to deal with N problems
             var stopwatch = Stopwatch.StartNew();
-            var sum = new BigInteger();
 
-            for (int i = 0; i < processorsCount; i++)
-            {
-                var rangeIndex = i;
+            var startIndex = 0;
+            var elementsToProcessCount = arraySize;
+            var arrayProcessor = new ArrayProcessor(array, startIndex, elementsToProcessCount);
+            arrayProcessor.GenerateSum();
 
-                tasks.Add(
-                    Task.Run(
-                        () =>
-                            SumNumbersInRange(ranges[rangeIndex].LowerBound, ranges[rangeIndex].UpperBound))
-                        .ContinueWith((result) => sum += result.Result));
-            }
-
-            //for (int i = 0, iteratorAmount = 15000; i < processorsCount / 2; i++)
-            //{
-            //    var rangeIndex = i;
-
-            //    tasks.Add(
-            //        Task.Run(
-            //            () => SumNumbersInRange(ranges[rangeIndex].LowerBound, ranges[rangeIndex].LowerBound + iteratorAmount))
-            //            .ContinueWith((result) =>
-            //            {
-            //                sum += result.Result;
-            //            }));
-
-            //    tasks.Add(
-            //        Task.Run(
-            //            () => SumNumbersInRange(ranges[rangeIndex].LowerBound + iteratorAmount, ranges[rangeIndex].UpperBound))
-            //            .ContinueWith((result) =>
-            //            {
-            //                sum += result.Result;
-            //            }));
-            //}
-
-            // Wait for the tasks to finish
-            Task.WaitAll(tasks.ToArray());
+            var totalSum = arrayProcessor.GeneratedSum;
             stopwatch.Stop();
 
+            // Sum: 1249975000
+            // Time elapsed: 80 ms
             Console.WriteLine($"Elapsed time: {stopwatch.Elapsed.TotalMilliseconds}");
-            Console.WriteLine($"Sum: {sum}");
+            Console.WriteLine($"Sum: {totalSum}");
         }
 
-        // 28799880000 8 Threads    Elapsed time: 15.3304
-        // 28799880000 16 Threads   Elapsed time: 26.0391
-
-        public static BigInteger SumNumbersInRange(long lowerBound, long upperBound)
+        public static int[] GetArray(int size)
         {
-            Console.WriteLine($"{lowerBound} - {upperBound}");
+            var array = new int[size];
 
-            var sum = new BigInteger();
-
-            for (long i = lowerBound; i < upperBound; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                sum += i;
+                array[i] = i;
             }
 
-            return sum;
-        }
-
-        public static IList<Range<long>> GetRanges(int count)
-        {
-            const long iteratorAmount = 30000;
-
-            var ranges = new List<Range<long>>();
-            for (long i = 0; i < count * iteratorAmount; i += iteratorAmount)
-            {
-                ranges.Add(new Range<long>(i, i + iteratorAmount));
-            }
-
-            return ranges;
+            return array;
         }
     }
 }
