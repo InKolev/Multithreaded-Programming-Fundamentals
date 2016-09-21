@@ -7,25 +7,23 @@ namespace I.Sum.Problem
     {
         static void Main(string[] args)
         {
-            var coresCount = Environment.ProcessorCount;
-
             // Build array
-            var arraySize = 500000;
+            var arraySize = 50000000;
             var array = GetArray(arraySize);
 
-            // Run N tasks to deal with N problems
+            // Run one Thread to deal with one LARGE problem
             var stopwatch = Stopwatch.StartNew();
-
             var startIndex = 0;
             var elementsToProcessCount = arraySize;
+
             var arrayProcessor = new ArrayProcessor(array, startIndex, elementsToProcessCount);
             arrayProcessor.GenerateSum();
 
             var totalSum = arrayProcessor.GeneratedSum;
             stopwatch.Stop();
 
-            // Sum: 1249975000
-            // Time elapsed: 80 ms
+            // Еlapsed time: 6700-7100 ms
+            // Sum: 1249999975000000
             Console.WriteLine($"Elapsed time: {stopwatch.Elapsed.TotalMilliseconds}");
             Console.WriteLine($"Sum: {totalSum}");
         }

@@ -21,6 +21,9 @@
 # Table of Contents - I
 - [Brief overview and concepts](#overview)
 - [Process vs. Thread](#processVsThread)
+- [Context-switching](#contextSwitching)
+  - [Cooperative multitasking (Fibers)](#cooperativeMultitasking)
+	- [Preemptive multitasking (Threads)](#preemptiveMultitasking)
 - [Multithreading Use-Cases](#useCases)
 - [Demo: Unresponsive UI](#demoUnresponsiveUi)
 - [Multithreading caveats](#caveats)
@@ -89,8 +92,12 @@
 ## [Demo:]()
 
 
+
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+Process vs. Thread
+
+
 
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 
@@ -98,7 +105,9 @@
 
 
 
-
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+Two puzzles, one kid
 
 
 

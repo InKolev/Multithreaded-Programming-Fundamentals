@@ -10,15 +10,15 @@ namespace I.Sum.Problem.Async
     {
         public static void Main(string[] args)
         {
-            var coresCount = Environment.ProcessorCount;
+            var coresCount = Environment.ProcessorCount*2;
             var threads = new List<Thread>(coresCount);
             var arrayProcessors = new List<ArrayProcessor>(coresCount);
 
             // Build array
-            var arraySize = 500000;
+            var arraySize = 50000000;
             var array = GetArray(arraySize);
 
-            // Run N tasks to deal with N problems
+            // Run N Threads to deal with N SMALL problems
             var stopwatch = Stopwatch.StartNew();
             var elementsPerCore = arraySize / coresCount;
             var elementsLeftOver = arraySize % coresCount;
@@ -52,8 +52,8 @@ namespace I.Sum.Problem.Async
 
             stopwatch.Stop();
 
-            // Sum: 1249975000
-            // Time elapsed: 30 ms
+            // Elapsed time: 1900-3300 ms
+            // Sum: 1249999975000000
             Console.WriteLine($"Elapsed time: {stopwatch.Elapsed.TotalMilliseconds}");
             Console.WriteLine($"Sum: {totalSum}");
         }
