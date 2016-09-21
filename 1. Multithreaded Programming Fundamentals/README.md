@@ -22,10 +22,9 @@
 - [Brief overview and concepts](#overview)
 - [Process vs. Thread](#processVsThread)
 - [Context-switching](#contextSwitching)
-  - [Cooperative multitasking (Fibers)](#cooperativeMultitasking)
-	- [Preemptive multitasking (Threads)](#preemptiveMultitasking)
+ - [Cooperative multitasking (Fibers)](#cooperativeMultitasking)
+ - [Preemptive multitasking (Threads)](#preemptiveMultitasking)
 - [Multithreading Use-Cases](#useCases)
-- [Demo: Unresponsive UI](#demoUnresponsiveUi)
 - [Multithreading caveats](#caveats)
 
 
@@ -33,7 +32,6 @@
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - II
 - [Creating and Starting threads](#creatingAndStartingThreads)
-- [Demo: Starting threads](#demoStartingThreads)
 - [Thread entry point methods](#threadEntryPointMethods)
 - [Thread lifetime](#threadLifetime)
 - [Naming threads](#namingThreads)
@@ -95,15 +93,94 @@
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-Process vs. Thread
+# Process vs. Thread
+## What is a Process / Thread? <br/> What is Multitasking / Multithreading?
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is a Process? - I
+ - In terms of computing - a process is an **instance** of a **computer program** that is being **executed**.  
+ - It contains the **program code** and its **current activity**.   
+ - Depending on the **OS**, a process may be made up of **multiple threads of execution**, that execute instructions <a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)">_concurrently_</a>.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is a Process? - II
+ - A computer program is a _**passive collection**_ of instructions, while a process is the _**actual execution**_ of those instructions.   
+ - _**Several processes**_ may be associated with the _**same program**_. For example, opening up several instances of the same program (Visual Studio, Google Chrome, etc), often means more than one process is being executed.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is a Process? - III
+ - Each process **provides the resources** needed to execute a program.
+ - Each process is started with a **single thread of execution**, often called the **primary thread**, and can create additional threads from any of its threads.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is a Process? - IV
+ - A process has a:
+  - **Virtual address space**
+  - **Executable code**
+  - **Open handles to system objects** & **security context**
+  - **Unique process identifier**
+  - **Environment variables** & **priority class**
+  - **At least one thread of execution**.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is a Thread? - I
+ - A thread is an **entity within a process** that can be **scheduled** for execution.
+ - All threads of a **process** share its **virtual address space** and system resources.
+ - Each thread maintains **exception handlers**, a **scheduling priority**, thread **local storage**, a unique **thread identifier**, and a **set of structures** the system will use to save the **thread context** until it is **scheduled**.
+
+
+
+ <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is a Thread? - II
+ - The **thread context** includes:
+	 - **The thread's set of machine registers**
+	 - **The kernel stack**
+	 - **A thread environment block (TEB)**
+	 - **A user stack in the address space of the thread's process**.
+ - Threads can also have their own **security context**, which can be used for impersonating clients.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is Multitasking? - I
+ - <a href="https://en.wikipedia.org/wiki/Computer_multitasking">_**Multitasking**_</a> is a concept of **performing multiple tasks** (processes) over a certain **period of time** by executing them in a **parallel** manner or **concurrently**.  
+ - **New tasks start** and **interrupt already started ones** before they have reached completion, **instead of executing the tasks sequentially** so each started task needs to reach its end before a new one is started.  
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is Multitasking? - II
+ - The tasks share common processing resources such as central processing units **(CPUs)** and **main memory**.
+ - Multitasking does not necessarily mean that multiple tasks are executing at exactly the same time. **Multitasking does not imply parallel execution**, but it does mean that more than one task can be **part-way** through execution at the same time, and that **more than one task** is **advancing** over a given period of time.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is Multithreading? - I
+Multithreading **extends the idea of multitasking** into applications, so you can **subdivide specific operations** within a **single application** into individual threads. Each of the threads can run in **parallel**. **The OS divides processing time** not only **among different applications**, but also **among each thread within an application**.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# What is Multithreading? - II
+A common example of the **advantage of multithreading** is the fact that you can have a **word processor** that **prints a document** using a background thread, but at the same time another thread is running that **accepts user input**, so that you can type up a new document.
 
 
 
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Summary
+Multitasking: Running several tasks(processes) on a computer. Switching between the tasks is so fast that the user can interact with the system, without having to wait for one task to be completely finished.
 
-<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-
-
+Multithreading: Running several smaller operations within a process. Making use of the processors(cores) that are currently free, in order to make the application as responsive as possible, or in order to increase the performance of the application (CPU wise).
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
