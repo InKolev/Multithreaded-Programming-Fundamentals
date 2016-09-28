@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
-namespace IV.Race.Condition
+namespace IV.Race.Condition.Solved
 {
     public class Startup
     {
@@ -12,7 +16,7 @@ namespace IV.Race.Condition
         {
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(new string('*',60));
+                Console.WriteLine(new string('*', 60));
                 StartCounterConcurrently();
                 counter = 0;
             }
@@ -20,8 +24,8 @@ namespace IV.Race.Condition
 
         public static void StartCounterConcurrently()
         {
-            var t1 = new Thread(()=> Run(ConsoleColor.Green));
-            var t2 = new Thread(()=> Run(ConsoleColor.Yellow));
+            var t1 = new Thread(() => Run(ConsoleColor.Yellow));
+            var t2 = new Thread(() => Run(ConsoleColor.Green));
 
             t1.Start();
             t2.Start();
@@ -39,9 +43,16 @@ namespace IV.Race.Condition
             while (counter < 10)
             {
                 Thread.Sleep(100);
-                counter++;
-                Console.ForegroundColor = foregroundColor;
-                Console.WriteLine($"[Thread:{threadId}] - {counter}");
+
+                lock (counterLock)
+                {
+                    if (counter < 10)
+                    {
+                        counter++;
+                        Console.ForegroundColor = foregroundColor;
+                        Console.WriteLine($"[Thread:{threadId}] - {counter}");
+                    }
+                }
             }
         }
     }
