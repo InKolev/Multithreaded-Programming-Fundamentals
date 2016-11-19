@@ -45,10 +45,20 @@ Multithreaded programs must be carefully programmed to prevent those bad things 
 ### Какво е Многонишковост?  
 
 ## Какво представлява Асинхронното програмиране?  
+Async operations are simply non-blocking.
+Asynchronous only means that events are triggered outside the main course of execution, so that while an operation is executed, the main thread does not freeze..
+Async and Callbacks are just a mechanism that allows the programmer to express concurrency.
+
+Asynchonous programming solves the problem of waiting around for an expensive operation to complete before you can do anything else. If you can get other stuff done while you're waiting for the operation to complete then that's a good thing. Example: keeping a UI running while you go and retrieve more data from a web service.
+
+http://urda.cc/blog/2010/10/04/asynchronous-versus-parallel-programming
 
 ### Ползи и недостатъци  
 
-## Какво представлява Паралелното програмиране?  
+## Какво представляват Паралелното и Конкурентно програмиране?  
+In concurrent computation two computations both advance independently of each other. The second computation doesn't have to wait until the first is finished for it to advance. It doesn't state however, the mechanism how this is achieved. In single-core setup, suspending and alternating between threads is required (also called pre-emptive multithreading).
+
+In parallel computation two computations both advance simultaneously - that is literally at the same time. This is not possible with single CPU (unless the single processor supports ) and requires multi-core setup instead.
 
 ### Ползи и недостатъци  
 

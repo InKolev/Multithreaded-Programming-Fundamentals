@@ -2,18 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace II.ResponsiveUI
 {
@@ -46,9 +37,15 @@ namespace II.ResponsiveUI
             {
                 Task.Run(() =>
                 {
+                    // Show the threadID that executes the following statement
+                    var currentThreadId = Thread.CurrentThread.ManagedThreadId;
+
                     Dispatcher.Invoke(() =>
                     {
+                        // Show the thread id that executes the following statement
                         this.btnFreezeUI.Content = "Freezing...";
+
+                        var uiThreadId = Thread.CurrentThread.ManagedThreadId;
                     });
 
                     Thread.Sleep(3000);
@@ -56,6 +53,8 @@ namespace II.ResponsiveUI
                     Dispatcher.Invoke(() =>
                     {
                         this.btnFreezeUI.Content = "UI has been frozen (Click to freeze again)";
+
+                        var uiThreadId = Thread.CurrentThread.ManagedThreadId;
                     });
                 });
             }
@@ -68,7 +67,13 @@ namespace II.ResponsiveUI
         private void BtnShowDetails_Click(object sender, RoutedEventArgs e)
         {
             var selectedCar = this.listViewCars.SelectedItem ?? "NO CAR SELECTED";
-            MessageBox.Show(selectedCar.ToString(), "Car details", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            var messageBoxText = selectedCar.ToString();
+            var caption = "Car details";
+            var messageBoxButton = MessageBoxButton.OK;
+            var messageBoxIcon = MessageBoxImage.Information;
+
+            MessageBox.Show(messageBoxText, caption, messageBoxButton, messageBoxIcon);
         }
 
         private void BtnLoadCars_Click(object sender, RoutedEventArgs e)

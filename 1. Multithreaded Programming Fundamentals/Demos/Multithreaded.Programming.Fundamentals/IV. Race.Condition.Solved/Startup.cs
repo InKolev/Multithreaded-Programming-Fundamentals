@@ -14,6 +14,8 @@ namespace IV.Race.Condition.Solved
 
         public static void Main(string[] args)
         {
+            // Run the operation 10 times
+            // To get more results as a proof that the problem no longer exists
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine(new string('*', 60));
@@ -46,12 +48,17 @@ namespace IV.Race.Condition.Solved
 
                 lock (counterLock)
                 {
+                    // We check the value of the counter again
+                    // because there is a chance that while we were locking the section -
+                    // the other thread already changed the counter value
                     if (counter < 10)
                     {
                         counter++;
                         Console.ForegroundColor = foregroundColor;
                         Console.WriteLine($"[Thread:{threadId}] - {counter}");
                     }
+
+                    // Remove the 'if-clause' in order to see the behavior described above
                 }
             }
         }

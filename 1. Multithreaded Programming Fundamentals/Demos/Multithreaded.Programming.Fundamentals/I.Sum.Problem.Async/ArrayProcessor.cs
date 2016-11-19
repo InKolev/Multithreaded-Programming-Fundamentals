@@ -17,15 +17,15 @@ namespace I.Sum.Problem.Async
             this.elementsToProcessCount = elementsToProcessCount;
         }
 
-        public BigInteger GeneratedSum { get; set; } = 0;
+        public BigInteger CalculatedSum { get; set; } = 0;
 
-        public void GenerateSum()
+        public void CalculateSum()
         {
             var lastIndex = this.startIndex + this.elementsToProcessCount;
 
             for (int i = this.startIndex; i < lastIndex; i++)
             {
-                this.GeneratedSum += this.array[i];
+                this.CalculatedSum += this.array[i];
             }
         }
     }
