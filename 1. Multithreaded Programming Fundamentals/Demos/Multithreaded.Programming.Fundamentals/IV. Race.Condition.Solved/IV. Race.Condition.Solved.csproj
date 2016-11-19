@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A8FF7D4D-C85C-459D-94D6-569C6B02DCF0}</ProjectGuid>
+    <ProjectGuid>{C2C1ACA8-C706-4A54-A44C-986DD431E1AC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>I.Multiple.Tasks.Multiple.Cores</RootNamespace>
-    <AssemblyName>I.Multiple.Tasks.Multiple.Cores</AssemblyName>
+    <RootNamespace>IV.Race.Condition.Solved</RootNamespace>
+    <AssemblyName>IV.Race.Condition.Solved</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

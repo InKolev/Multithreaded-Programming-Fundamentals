@@ -1,4 +1,4 @@
-﻿namespace Async.Introduction.Infrastructure
+﻿namespace II.ResponsiveUI
 {
     public static class StringExtensions
     {

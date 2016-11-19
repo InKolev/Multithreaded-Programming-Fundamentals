@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("III.Awaiting.Tasks")]
+[assembly: AssemblyTitle("IV. Race.Condition.Solved")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("III.Awaiting.Tasks")]
+[assembly: AssemblyProduct("IV. Race.Condition.Solved")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("830b54dd-a88e-45a7-b88a-2748005cdf42")]
+[assembly: Guid("c2c1aca8-c706-4a54-a44c-986dd431e1ac")]
 
 // Version information for an assembly consists of the following four values:
 //
