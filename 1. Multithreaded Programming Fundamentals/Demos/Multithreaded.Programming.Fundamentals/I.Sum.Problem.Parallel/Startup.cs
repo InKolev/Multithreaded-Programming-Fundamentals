@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace I.Sum.Problem.Async
+namespace I.Sum.Problem.Parallel
 {
     public class Startup
     {

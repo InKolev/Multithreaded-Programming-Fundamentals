@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Numerics;
 
-namespace I.Sum.Problem.Async
+namespace I.Sum.Problem.Parallel
 {
     public class ArrayProcessor
     {
