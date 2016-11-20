@@ -13,7 +13,7 @@ namespace III.Merge.Sort
         public static void Main(string[] args)
         {
             Console.WriteLine("Loading array from file...");
-            var array = LoadArrayFromFile("array.txt");
+            var array = LoadArrayFromFile("largeArray.txt");
             Console.WriteLine("Array loaded");
 
             Console.WriteLine("Started sorting the array");
@@ -25,7 +25,7 @@ namespace III.Merge.Sort
             stopwatch.Stop();
             Console.WriteLine("Array sorted");
 
-            // Elapsed time: 2300-2500 ms
+            // Elapsed time: 7600 ms
             Console.WriteLine($"Elapsed time: {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
@@ -40,6 +40,26 @@ namespace III.Merge.Sort
             }
 
             return array;
+        }
+
+        public static string ArrayToString(int[] array)
+        {
+            var random = new Random();
+            var builder = new StringBuilder(array.Length + 3);
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (i < array.Length - 1)
+                {
+                    builder.Append($"{random.Next(1, 200)},");
+                }
+                else
+                {
+                    builder.Append($"{random.Next(1, 200)}");
+                }
+            }
+
+            return builder.ToString();
         }
 
         public static void PrintArray(int[] array)

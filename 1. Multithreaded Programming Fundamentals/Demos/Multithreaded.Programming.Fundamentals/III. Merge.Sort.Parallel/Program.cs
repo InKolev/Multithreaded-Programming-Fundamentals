@@ -12,13 +12,12 @@ namespace III.Merge.Sort.Parallel
         public static void Main(string[] args)
         {
             Console.WriteLine("Loading array from file...");
-            var array = LoadArrayFromFile("array.txt");
+            var array = LoadArrayFromFile("largeArray.txt");
             Console.WriteLine("Array loaded");
-            //var array = new int[] { 1, 4, 2, 6, 7, 3, 3, 2, 1, 8, 5, 2, 9, 8, 7, 1, 2 };
-
-            Console.WriteLine("Started sorting the array");
+      
             var stopwatch = Stopwatch.StartNew();
 
+            Console.WriteLine("Started sorting the array");
             var processorsCount = Environment.ProcessorCount;
             var elementsToSlice = array.Length / processorsCount;
             var elementsLeft = (array.Length % processorsCount) - 1;
@@ -51,6 +50,7 @@ namespace III.Merge.Sort.Parallel
                 threads.Add(thread);
             }
 
+            // Wait for all threads to finish their work
             for (int i = 0; i < threads.Count; i++)
             {
                 threads[i].Join();
@@ -62,7 +62,7 @@ namespace III.Merge.Sort.Parallel
             stopwatch.Stop();
             Console.WriteLine("Array sorted");
 
-            // Elapsed time: 2300-2500 ms
+            // Elapsed time: 700-800 ms
             Console.WriteLine($"Elapsed time: {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 

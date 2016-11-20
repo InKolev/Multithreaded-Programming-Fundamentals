@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -29,13 +30,16 @@ namespace IV.Race.Condition.Solved
             var t1 = new Thread(() => Run(ConsoleColor.Yellow));
             var t2 = new Thread(() => Run(ConsoleColor.Green));
 
+            var stopwatch = Stopwatch.StartNew();
             t1.Start();
             t2.Start();
 
             t1.Join();
             t2.Join();
+            stopwatch.Stop();
 
             Console.ResetColor();
+            Console.WriteLine($"Elapsed time: {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
         public static void Run(ConsoleColor foregroundColor)
