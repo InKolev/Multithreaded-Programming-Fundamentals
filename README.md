@@ -1,17 +1,3 @@
-# Асинхронно и паралелно програмиране
-
-# Кратко теоретично въведение   
-
-## Разлика между Процес и Нишка (обем работа, памет)  
-
-### Какво е Процес?  
-
-Един **процес** представлява **инстанция на компютърна програма, в момента на изпълнението й**. Съдържа програмния код и текущото състояние на програмата. В зависимост от операционната система и възможностите на хардуера - един процес, може да бъде съставен от множество работни **нишки**, които изпълняват инструкции **асинхронно**.  
-
-Една **пасивна** колекция от инструкции се нарича **КОМПЮТЪРНА ПРОГРАМА**, а **програма в хода си на изпълнение** се нарича **ПРОЦЕС**. Множество процеси могат да бъдат асоциирани с една и съща компютърна програма. Например, можем да отворим 2,3,4 или повече инстанции на Visual Studio. Това са няколко **различни** процеса, които са стартирани от **една и съща** компютърна програма.
-
-### Какво е Нишка?  
-
 ## Разлика между Многозадачност и Многонишковост  
 Multitasking
 The ability to run several programs simultaneously, potentially by utilizing several processors, but predominantly, by time-sharing their resource requirements.
@@ -27,10 +13,7 @@ These are largely two sides of the same coin, the difference in vocabulary is ma
 
 Both of them require some O/S scheduling mechanism to keep track of which process/thread goes next, goes where and goes when, but the differences in the cost of manipulating processes and threads means that the best policy for one isn't necessarily good for the other. Hence, they get different names, and can be discussed as different things, within a context implied by the word chosen presently.
 
-!!!
-It’s important to note that a thread can do anything a process can do. But since a process can consist of multiple threads, a thread could be considered a ‘lightweight’ process. Thus, the essential difference between a thread and a process is the work that each one is used to accomplish. Threads are used for small tasks, whereas processes are used for more ‘heavyweight’ tasks – basically the execution of applications.
 
-Another difference between a thread and a process is that threads within the same process share the same address space, whereas different processes do not. This allows threads to read from and write to the same data structures and variables, and also facilitates communication between threads. Communication between processes – also known as IPC, or inter-process communication – is quite difficult and resource-intensive.
 
 A common example of the advantages of multithreading is the fact that you can have a word processor that prints a document using a background thread, but at the same time another thread is running that accepts user input, so that you can type up a new document.
 

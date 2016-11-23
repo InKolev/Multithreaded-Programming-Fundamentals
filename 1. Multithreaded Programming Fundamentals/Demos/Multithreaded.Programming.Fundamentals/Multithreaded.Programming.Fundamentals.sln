@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "III. Merge.Sort", "III. Mer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "III. Merge.Sort.Parallel", "III. Merge.Sort.Parallel\III. Merge.Sort.Parallel.csproj", "{755AF1BF-8DC5-481C-BB32-FDAD37F31710}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V. Creating.Threads", "V. Creating.Threads\V. Creating.Threads.csproj", "{0CFDC6B3-4C01-4B20-BC64-2116AF6810BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{755AF1BF-8DC5-481C-BB32-FDAD37F31710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{755AF1BF-8DC5-481C-BB32-FDAD37F31710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{755AF1BF-8DC5-481C-BB32-FDAD37F31710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CFDC6B3-4C01-4B20-BC64-2116AF6810BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CFDC6B3-4C01-4B20-BC64-2116AF6810BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CFDC6B3-4C01-4B20-BC64-2116AF6810BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CFDC6B3-4C01-4B20-BC64-2116AF6810BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
