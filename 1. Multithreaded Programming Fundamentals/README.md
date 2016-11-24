@@ -43,6 +43,7 @@
  - [a.k.a Daemon threads](#daemonThreads)
 - [Threads lifetime](#threadLifetime)
 - [Thread priority](#threadPriority)
+- [Joining a Thread](#joiningThreads)
 
 
 
@@ -51,9 +52,8 @@
 # Table of Contents - III
 - [Race condition](#raceCondition)
 - [Critical sections](#synchronizingThreads)
-- [Joining a Thread](#joiningThreads)
 - [Locking shared resources](#lockingSharedResources)
-- [The "volatile" keyword](#volatileKeyword)
+- [The tricky "volatile" keyword](#volatileKeyword)
 
 
 
