@@ -7,8 +7,8 @@
     <ProjectGuid>{B35E86DA-1A3B-43EB-AD16-DB1649B04318}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VI.Naming.Threads</RootNamespace>
-    <AssemblyName>VI.Naming.Threads</AssemblyName>
+    <RootNamespace>VII.Naming.Threads</RootNamespace>
+    <AssemblyName>VII. Naming.Threads</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

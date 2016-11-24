@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VII. Parameterized.Thread.Start")]
+[assembly: AssemblyTitle("IX. Foreground.Threads")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VII. Parameterized.Thread.Start")]
+[assembly: AssemblyProduct("IX. Foreground.Threads")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("71a3dedd-1dc0-4d4b-b7e2-e3832c2a87aa")]
+[assembly: Guid("69f4454c-4a64-4d6b-a7c2-eedf7bcc2dd4")]
 
 // Version information for an assembly consists of the following four values:
 //

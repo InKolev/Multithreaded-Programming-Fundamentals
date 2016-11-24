@@ -23,12 +23,12 @@
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - I
 - [Brief overview and concepts](#overview)
-- [Concurrency vs Parallelism](#concurrencyVsParallelism)
+- [Parallel vs Concurrent vs Async](#concurrencyVsParallelism)
 - [Process vs. Thread](#processVsThread)
-- [Context-switching](#contextSwitching)
- - [Cooperative multitasking (Fibers)](#cooperativeMultitasking)
- - [Preemptive multitasking (Threads)](#preemptiveMultitasking)
-- [Multithreading Use-Cases](#useCases)
+- [Multitasking vs. Multithreading](#multitaskingVsMultithreading)
+ - [Cooperative multitasking](#cooperativeMultitasking)
+ - [Preemptive multitasking](#preemptiveMultitasking)
+- [Multithreading use-cases](#useCases)
 - [Multithreading caveats](#caveats)
 
 
@@ -37,10 +37,11 @@
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - II
 - [Creating and Starting threads](#creatingAndStartingThreads)
-- [Thread entry point methods](#threadEntryPointMethods)
-- [Thread lifetime](#threadLifetime)
+- [Parameterized Thread Start](#parameterizedThreadStart)
 - [Naming threads](#namingThreads)
 - [Background threads](#backgroundThreads)
+ - [a.k.a Daemon threads](#daemonThreads)
+- [Threads lifetime](#threadLifetime)
 - [Thread priority](#threadPriority)
 
 
@@ -49,13 +50,10 @@
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - III
 - [Race condition](#raceCondition)
-- [Synchronizing threads](#synchronizingThreads)
-- [Blocking Threads](#blockingThreads)
-- [Sleeping and Spinning Threads](#sleepingAndSpinning)
+- [Critical sections](#synchronizingThreads)
 - [Joining a Thread](#joiningThreads)
-- [The "volatile" keyword](#volatileKeyword)
-- [Interrupt and Abort](#interruptAndAbort)
 - [Locking shared resources](#lockingSharedResources)
+- [The "volatile" keyword](#volatileKeyword)
 
 
 
@@ -67,10 +65,9 @@
 	- [Running](#runningState)
 	- [Blocked](#blockedState)
 	- [Interrupted](#interruptedState)
-	- [Stopped/StopRequested](#stoppedState)
-	- [Suspended/SuspendRequested](#suspendedState)
-	- [Aborted/AbortRequested](#abortedState)
-	- [Background](#isBackgroundState)
+	- [StopRequested/Stopped](#stoppedState)
+	- [SuspendRequested/Suspended](#suspendedState)
+	- [AbortRequested/Aborted](#abortedState)
 
 
 
@@ -161,6 +158,7 @@ while **parallelism** is the **simultaneous execution** of (possibly related) co
 
 
 
+
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # What is a Process?
  - A process has a:
@@ -170,6 +168,7 @@ while **parallelism** is the **simultaneous execution** of (possibly related) co
   - **Unique process identifier**
   - **Environment variables** & **priority class**
   - **At least one thread of execution**.
+
 
 
 
@@ -246,8 +245,46 @@ A computer with multiple CPUs which does not have applications written specifica
 
 
 
+
+
+
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Threads lifetime
+## Managed thread objects and OS threads
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# Threads lifetime
+- Consider the behavior of the following code:
+
+```cs
+if (true)
+{
+	 new Thread(() =>
+	 {
+		 ExecuteLongRunningTask();
+	 }).Start();
+}
+
+while (true)
+{
+	 //do nothing
+	 Thread.Sleep(100);
+}
+```
+
+- Will the thread be suspended after the GC collects the "Thread" object that is no longer referenced in the execution scope?
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# Threads lifetime
+- `Thread` objects will be eligible for garbage collection as soon as they are no more used.
+- In our example - after calling the `Start()` method, the `Thread` object will be immediately scheduled for GC. It will however not be collected immediately, as the GC runs at specific times. [Learn more about GC .](http://www.red-gate.com/products/dotnet-development/ants-memory-profiler/learning-memory-management/memory-management-fundamentals)
+- However, the actual **OS thread** is not relying on the `Thread` object and will continue to run even if the `Thread` object is collected.
+
+
 
 
 
