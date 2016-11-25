@@ -57,7 +57,6 @@
 
 
 
-
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Table of Contents - IV
 - [Thread States](#threadStates)
@@ -726,18 +725,223 @@ public static void DoWork(){ ... }
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-# // TODO
+# Race condition
+## (common problems when accessing shared resources)
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Race condition
+- In computer programming, a race condition occurs when two or more threads access shared data and they try to change it at the same time.  
+
+- Because the scheduler can swap between threads at any time, or the threads might run in parallel, you don't know the order in which the threads will attempt to access the shared data.  
+
+- Problems often occur when one thread does a "check-then-act", and another thread changes the value in between the "check" and the "act" phases.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Race condition
+- In computer memory or storage, a race condition may occur if commands to **read** and **write** a large amount of data are received **at almost the same instant**, and the machine attempts to overwrite some or all of the old data while that old data is still being read.
+
+- The result may be one or more of the following:
+ - Computer crash
+ - "Illegal operation" notification and shutdown of the program
+ - Errors when reading the old data
+ - Errors when writing the new data
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Race condition
+## Demo
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Critical sections
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Critical sections
+- In computer programming, concurrent or parallel access to **shared resources** (**data structures**, **peripheral devices** or a **network connection**) can lead to unexpected or erroneous behavior.  
+
+- Parts of the program where the <br>shared resource is accessed by <br>multiple threads is called a<br> **critical section** or **critical region**.
+
+<!-- <img class="slide-image" showInPresentation="true" src="images\CriticalSections.jpg" style="top:38%; left:60%; width:38%; z-index:-1; border: 1px solid white; border-radius:5px;" /> -->
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Critical sections
+- Running more than one thread inside the same application does not by itself cause problems.
+
+- The problems arise when multiple threads access the same resources. For instance the same memory (variables, arrays or objects), systems (databases, web services) or files.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Critical sections
+- Here is a critical section code example that might fail if executed by multiple threads simultaneously:
+
+```cs
+public class Counter
+{
+	private long count = 0;
+
+	public void Add(long valueToAdd)
+	{
+		this.count = this.count + valueToAdd;
+	}
+}
+```
+
+- Imagine if two threads, **A** and **B**, are executing the Add() method on the same instance of the `Counter` class. What will happen?
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Critical sections
+- There is no way to know when the operating system switches between the two threads.  
+
+- The code in the Add() method is not executed as a single atomic instruction. Rather it is executed as a set of individual instructions, similar to this:
+ - 1. Read **this.count** from the memory into the register
+ - 2. Add **value** to the register
+ - 3. Write the register into the memory
+
+- This is a massive prerequisite for potential problems to occur.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Critical sections
+- Consider the following mixed execution of the previous code of threads **A** and **B**
+
+```cs
+this.count = 0;
+
+A:  Reads this.count into a register (0)
+B:  Reads this.count into a register (0)
+B:  Adds value 2 to a register
+B:  Writes register value (2) back to memory.
+        this.count now equals 2
+A:  Adds value 3 to a register
+A:  Writes register value (3) back to memory.
+        this.count now equals 3
+```
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Critical sections
+- The two threads wanted to add the values **(2)** and **(3)** to the **counter**. Thus the value should have been **(5)** after the two threads complete execution.
+
+- However, since the execution of the two threads is interleaved, the result ends up being different.
+
+- The code in the **Add()** method contains a **critical section**. When **multiple threads** execute this critical section, a **race condition** occurs.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Critical sections
+- To prevent race conditions from occurring you must make sure that the critical section is executed as an **atomic instruction**.
+- That means that once a **single thread is executing it**, **no other threads should be able to execute it**, until the first thread has left the critical section
+- Race conditions can be avoided with proper **thread synchronization** in the critical sections.
+- Simple thread synchronization can be achieved using the **lock()** statement.
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Critical sections
+## Demo
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Locking shared resources
+## using the lock() statement
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Locking shared resources
+- The **`lock`** keyword marks a statement block as a **critical section** by obtaining the mutual-exclusion lock for a given object, **executes** the statement block, and then **releases** the `lock`.
+- The `lock` keyword ensures that one thread does not enter a critical section of code while another thread is in the critical section.
+- If **another thread** tries to enter a **locked** code block, it will **wait/block**, until the lock object is released.
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Locking shared resources
+- Best practice is to define a **private object** to lock on, or a **private static object** variable to protect data common to all instances.
+- You can't use the _**await**_ keyword in the body of a **lock** statement.
+
+```cs
+public class Counter
+{
+	private object myLock = new object();
+	private long count = 0;
+
+	public void Add(long valueToAdd)
+	{
+		lock(this.myLock) // this code block is now
+		{                 // executed as an atomic operation
+			this.count = this.count + valueToAdd;
+			// cannot use 'await' here
+		}
+	}
+}
+```
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Locking shared resources
+## Demo
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# The "volatile" keyword
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Volatile
+- The **volatile** keyword indicates that a field might be modified by multiple threads that are executing at the same time.
+- Fields that are declared volatile are **not subject to compiler optimizations** that assume access by a single thread.
+- This ensures that the most up-to-date value is present in the field at all times.
+- The volatile modifier is usually used for a field that is accessed by multiple threads.
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# The "volatile" keyword
+## Live demo
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Questions?
+
+
+
 
 <!-- attr: { showInPresentation:true, hasScriptWrapper:true } -->
 # Free Trainings @ Telerik Academy
 - C# Programming @ Telerik Academy
-    - csharpfundamentals.telerik.com
   - Telerik Software Academy
     - academy.telerik.com
   - Telerik Academy @ Facebook
     - facebook.com/TelerikAcademy
   - Telerik Software Academy Forums
     - telerikacademy.com/Forum/Home  
-
-<!-- <img class="slide-image" showInPresentation="true" src="imgs\pic55.png" style="top:40%; left:68%; width:36.30%; z-index:-1; border: 1px solid white; border-radius:5px;" /> -->
-<!-- <img class="slide-image" showInPresentation="true" src="imgs\pic57.png" style="top:60%; left:92%; width:13.01%; z-index:-1" /> -->
