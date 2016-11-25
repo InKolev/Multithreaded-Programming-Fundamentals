@@ -72,27 +72,15 @@
 
 
 
-<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
-# Quote
-"In programming, **concurrency** is the composition of **independently executing processes**,  
-while **parallelism** is the **simultaneous execution** of (possibly related) computations."  
- \- Andrew Gerrand -  
-
-<br/>
- [Rob Pike: "Concurrency is not Parallelism" (Video)](https://vimeo.com/49718712)
-
-
-
-
 <!-- section start -->
 <!-- attr: { id:'overview', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # <a id="overview"></a> Brief overview
-## Understanding asynchronous,<br> parallel and concurrent work
+## Understanding asynchronous, parallel and concurrent work
 
 
 
 
-<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.8em;' } -->
 # Synchronous work
 In order to understand what Asynchronous programming is, we must have a clear definition for what **Synchronous programming** is:
 - **Sequential** execution of code statements.
@@ -104,11 +92,11 @@ In order to understand what Asynchronous programming is, we must have a clear de
 
 
 
-<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.8em;' } -->
 # Synchronous work
-A real life example would be:
-- A man is doing a presentation for work.
-- His wife starts spamming him with random questions, just to get his attention.
+**Example:**
+- A man is doing presentation for work.
+- His wife starts asking random questions, just to get his attention.
 - A man can't give attention, because he maxed out his CPU resources on the work he is currently doing, so he is not-responding back to his wife. He is not even listening to what she says.
 - After his work is completed, he turns around with a cute smile and asks his wife - "Whatsup? :)", but he has no idea that 30 seconds ago with his silence he accidentally opened Pandora's box.
 
@@ -122,7 +110,7 @@ A real life example would be:
 
 
 
-<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size: 0.9em;' } -->
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size: 0.8em;' } -->
 # Asynchronous work
 - In general, asynchronous (from Greek asyn-, meaning "not with," and chronos, meaning "time") is an adjective describing objects or events that are not coordinated in time.
 
@@ -160,9 +148,6 @@ A real life example would be:
 </br>
 </br>
 </br>
-</br>
-</br>
-- Apparently, reading is the new black.
 
 
 
@@ -176,13 +161,52 @@ A real life example would be:
 
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
 # Parallel work
+- In parallel computing, a computational task is typically **broken down in several**, often many, very similar **subtasks** that can be **processed independently** and whose results are combined afterwards, upon completion.
+- The tasks advance simultaneously - that is **literally at the same time**.
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Parallel work
+**Examples**:
+- A logistics company uses many transport vehicles in order to complete the deliveries as fast as possible.
+- An accounting company has many employees that do calculations for multiple clients simultaneously.
+
+Parallel programs distribute their tasks to multiple processors, that actively work on all of them simultaneously.
+
+[Video](https://www.youtube.com/watch?v=3nbjhpcZ9_g)
+
+
+
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# <a id=""></a> Sum problem
+## [Live demo]()
 
 
 
 
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # <a id=""></a> Sum of all numbers in a given interval
-## [Demo:]()
+## [Demo]()
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Concurrent work
+- Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially.
+- There is a separate execution point or "thread of control" for each computation ("process").
+- A concurrent system is one where a computation can advance without waiting for all other computations to complete; where more than one computation can advance at the "same time".
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Concurrent work
+- Concurrent programs handle tasks that are all progressing at the same time, but it is only necessary to work briefly and separately on each task, so the work can be interleaved in whatever order the tasks require.
+
+- Example: [A man juggling with one hand](https://www.youtube.com/watch?v=9uMui692JHU)
 
 
 
@@ -205,6 +229,19 @@ A real life example would be:
 
 
 
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# Quote
+"In programming, **concurrency** is the composition of **independently executing processes**,  
+while **parallelism** is the **simultaneous execution** of (possibly related) computations."  
+\- Andrew Gerrand -  
+
+<br/>
+[Rob Pike: "Concurrency is not Parallelism" (Video)](https://vimeo.com/49718712)
+
+
+
+
+
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Process vs. Thread
@@ -215,7 +252,7 @@ A real life example would be:
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # What is a Process?
  - In terms of computing - a process is an **instance** of a **computer program** that is being **executed**.  
- - It contains the **program code** and its **current activity**.   
+ - It contains the **program code** and its **current activity (state)**.   
  - Depending on the **OS**, a process may be made up of **multiple threads of execution**, that execute instructions <a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)">_concurrently_</a>.
 
 
@@ -270,7 +307,33 @@ A real life example would be:
 
 
 
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Process anatomy<br> Summary
+ - A process is an inert container
+  - It defines a virtual address space.
+	 - Contents are not addressable from another processes.
+  - Libraries of code are mapped into the address space.
+	 - 1 EXE + N DLLs (dynamically loaded libraries)
+
+<!-- <img showInPresentation="true" class="slide-image" src="images/ProcessAnatomy1.png" style="top:57%; left:8%; width:80%; z-index:-1; border-radius: 5px; border: 1px solid white;" /> -->
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Thread anatomy<br> Summary
+- `Threads` execute code
+ - A thread is a path of execution within a single process.
+ - It has access to all of the data within that process.
+ - Each thread has its own callstack & copy of the CPU registers
+ - A process with no threads exits (because it can no longer perform work)
+
+<!-- <img showInPresentation="true" class="slide-image" src="images/ThreadAnatomy1.png" style="top:62%; left:40%; width:27%; z-index:-1; border-radius: 5px; border: 1px solid white;" /> -->
 <!-- section start -->
+
+
+
+
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Multithreading vs. Multitasking
 
@@ -285,7 +348,7 @@ A real life example would be:
 
 
 
-<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
 # What is Multitasking?
  - The tasks share common processing resources such as central processing units **(CPUs)** and **main memory**.
  - Multitasking does not necessarily mean that multiple tasks are executing at exactly the same time. **Multitasking does not imply parallel execution**, but it does mean that more than one task can be **part-way** through execution at the same time, and that **more than one task** is **advancing** over a given period of time.
@@ -295,7 +358,7 @@ A real life example would be:
 
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # What is Multithreading?
-Multithreading **extends the idea of multitasking** into applications, so you can **subdivide specific operations** within a **single application** into individual threads. Each of the threads can run in **parallel**. **The OS divides processing time** not only **among different applications**, but also **among each thread within an application**.
+Multithreading **extends the idea of multitasking** into applications, so you can **subdivide specific operations** within a **single application** into individual threads. Each of the threads can run in **parallel** or/and **concurrently**. The OS **divides processing time** not only among **different applications**, but also among **each thread** within an application.
 
 
 
@@ -309,22 +372,135 @@ A common example of the **advantage of multithreading** is the fact that you can
 
 <!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
 # Summary
-**Multitasking** is the **ability of an OS** to run **several tasks**(processes) at the **same time**.  
+**Multitasking** is the **ability of an OS** to run **several tasks**(processes) at the "**same time**".  
 
-Switching between the tasks is so fast that the user can interact fully with the system, **without having to wait for one task to be completely finished** (at least he does not feel like waiting, in practice - he is waiting a couple milliseconds)
-
-
+Switching between the tasks is so fast that the user can interact fully with the system, **without having to wait for one task to be completely finished** (at least he does not feel like waiting, in practice - he is waiting a couple milliseconds).
 
 
-<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
 # Summary
-**Multithreading** is the **ability of an OS** to execute **different parts of a program**, called threads, **concurrently**. Multithreading usually involves very sophisticated programs that use multiple CPUs at the same time to **improve performance and responsiveness**.  
+**Multithreading** is the **ability of an OS** to execute **different parts of a program**, called threads, **in parallel** and/or **concurrently**.  
+
+Multithreading usually involves very sophisticated programs that use multiple CPUs at the same time to **improve performance and responsiveness**.   
+
 A computer with multiple CPUs which does not have applications written specifically to use multiprocessing or multithreading uses just one CPU.
 
 
 
 
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Preemptive multitasking
 
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Preemptive multitasking
+- In computing, preemption is the act of **temporarily interrupting** a task being carried out by a computer system, **without requiring its cooperation**, and with the intention of **resuming the task** at a later time.
+- Such changes of the executed task are known as _**Context switching**_.
+- It is normally carried out by a privileged task or part of the system known as a preemptive scheduler, which has the power to preempt, or interrupt, and later resume, other tasks in the system.
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Context switching
+- In computing, a **context switch** is the process of **storing** and **restoring the state** (the execution context) of a **process** or a **thread** so that execution can be resumed from the same point at a later time.  
+
+- This enables multiple processes to share a **single CPU** and is an essential feature of a **multitasking** operating system.
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Context switching cost
+- Context switches are usually **computationally intensive**, and much of the design of OS is to optimize the use of context switches.
+- Switching from one process to another requires a certain amount of **time** for doing the administration - **saving** and **loading** registers and memory maps, updating various tables and lists, etc.
+- Switching between threads of a single process can be faster than between two separate processes, because threads share the **same virtual memory maps**, so a [TLB](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) flush is not necessary.
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Cooperative multitasking
+## (non-preemptive multitasking)
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Cooperative multitasking
+- Cooperative multitasking is a style of computer multitasking in which the **OS never initiates a context switch** from a running process to another process.
+- Instead, processes voluntarily [yield control](https://en.wikipedia.org/wiki/Yield_(multithreading) periodically or when idle in order to enable multiple applications to be run simultaneously.
+- All programs must cooperate for the entire scheduling scheme to work.
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.9em;' } -->
+# Cooperative multitasking
+- As a cooperatively multitasked system relies on _**each process regularly giving up time to other processes**_ on the system, one poorly designed program can consume all of the CPU time for itself, either by performing **extensive calculations** or by **busy waiting**.
+
+- Both would cause the whole system to **hang**. In a server environment, this is a **hazard** that makes the entire environment unacceptably **fragile**.
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
+# Cooperative multitasking
+However, cooperative multitasking allows much **simpler implementation** of applications because their execution is **never unexpectedly interrupted** by the process scheduler.
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Multithreading use-cases
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Multithreading use-cases
+<br>
+The benefits of leveraging multi-threading include:
+- Opportunity to **scale** by parallelizing CPU-bound operations.
+ - assuming that a multi-core/multi-processor hardware is used.  
+- **Perform** CPU-bound **work while** I/O operations are **waiting**.  
+- **Maintain a responsive user interface**.
+ - farming off lengthy and/or blocking operations to a separate thread.
+ - using thread priorities to ensure the UI thread has highest priority.
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Multithreading caveats
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Multithreading caveats
+The price to pay for multi-threading includes:
+- Slower execution time on single-core/processor machines.
+ - context-switching overhead
+
+<!-- <img class="slide-image" showInPresentation="true" src="images\Caveats.PNG" style="top:35%; left:1%; width:100%; z-index:-1; border: 1px solid white; border-radius:5px;" /> -->
+<br><br><br>
+- Added program complexity
+ - More lines of code
+ - Less readable/maintainable
+ - Difficult to debug
+ - Difficult to test
+
+
+
+
+// TODO
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->

@@ -35,13 +35,12 @@ namespace II.FreezingUI
         {
             try
             {
-                // Why is this not executing?
-                // Or why is this not displaying on the UI?
+                // Why is this not displaying on the UI?
                 this.btnFreezeUI.Content = "Freezing...";
 
+                // Freeze the UI thread
                 Thread.Sleep(2000);
 
-                // Why is this displaying?
                 this.btnFreezeUI.Content = "UI has been frozen (Click to freeze again)";
             }
             catch (Exception exc)
@@ -65,3 +64,4 @@ namespace II.FreezingUI
         }
     }
 }
+    
