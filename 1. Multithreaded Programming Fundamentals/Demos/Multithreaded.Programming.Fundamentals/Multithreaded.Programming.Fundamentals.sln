@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XI. Threads.Priority", "XI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XII. Volatile.Keyword", "XII. Volatile.Keyword\XII. Volatile.Keyword.csproj", "{DD6E7593-DCE4-4C3B-A61C-3156590F425D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveDemos", "LiveDemos\LiveDemos.csproj", "{8167D68D-C1C3-4D0A-A0E0-751A0592CAF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{DD6E7593-DCE4-4C3B-A61C-3156590F425D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD6E7593-DCE4-4C3B-A61C-3156590F425D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD6E7593-DCE4-4C3B-A61C-3156590F425D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8167D68D-C1C3-4D0A-A0E0-751A0592CAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8167D68D-C1C3-4D0A-A0E0-751A0592CAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8167D68D-C1C3-4D0A-A0E0-751A0592CAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8167D68D-C1C3-4D0A-A0E0-751A0592CAF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

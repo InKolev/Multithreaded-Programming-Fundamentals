@@ -542,6 +542,14 @@ public delegate void ThreadStart();
 
 public delegate void ParameterizedThreadStart(object obj);
 ```
+- A newly created `Thread` is **scheduled for starting** using the instance method **Thread.Start()**
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Creating threads
+## Live demo
 
 
 
@@ -580,8 +588,14 @@ static void DoWork(object threadStartOptions)
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
-# Naming threads
+# Parameterized thread start
+## Live demo
 
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Naming threads
 
 
 
@@ -608,6 +622,12 @@ public static void SayWhatsup(object threadStartOptions)
 ```
 
 
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Naming threads
+## Demo
+
+
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
@@ -632,6 +652,12 @@ public static void SayWhatsup(object threadStartOptions)
 
 - **IMPORTANT!** - The foreground or background status of a thread does not affect the outcome of an unhandled exception in the thread. An **unhandled exception in any thread results in termination of the process**.
 
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Background threads
+## Live demo
 
 
 
@@ -678,6 +704,14 @@ while (true)
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Threads lifetime
+## Demo
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Threads priority
 
 
@@ -689,6 +723,14 @@ while (true)
  - **Highest** / **AboveNormal** / **Normal** / **BelowNormal** / **Lowest**  
 - A thread priority brings meta-information for the OS, and shows which thread must receive more CPU time compared to other threads.  
 - However, operating systems are not required to honor the priority of a thread.
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Threads priority
+## Live demo
 
 
 
@@ -721,6 +763,14 @@ public static void Main(string[] args)
 
 public static void DoWork(){ ... }
 ```
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Joining threads
+## Live demo
+
 
 
 <!-- section start -->
