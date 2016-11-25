@@ -13,7 +13,6 @@ namespace VI.Naming.Threads
             //Setup Cuki thread
             var cukiThreadStartOptions = new ThreadStartOptions { Color = ConsoleColor.Magenta, SleepTime = 1000 };
             cukiThread.Name = "Cuki";
-            cukiThread.IsBackground = false;
             cukiThread.Start(cukiThreadStartOptions);
 
             //Setup Koce thread
