@@ -83,21 +83,99 @@ while **parallelism** is the **simultaneous execution** of (possibly related) co
 
 
 
+
 <!-- section start -->
 <!-- attr: { id:'overview', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # <a id="overview"></a> Brief overview
-## Understanding asynchronous and <br/> parallel work
+## Understanding asynchronous,<br> parallel and concurrent work
 
 
 
 
-<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true } -->
-# Overview and Concepts
-**Firefighters Rescue Team** example:  
- - Single firefighter, single fire.
- - Many firefighters, single fire. (_**Parallel**_)
- - Single firefighter, many fires. (_**Two ways to deal with the problem (Concurrent & Sequential)**_)  
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Synchronous work
+In order to understand what Asynchronous programming is, we must have a clear definition for what **Synchronous programming** is:
+- **Sequential** execution of code statements.
+- If a blocking operation occurs, the whole process is blocked.
+- If a long-running operation occurs, the UI becomes unresponsive.
+- CPU-demanding tasks delay the execution of all other tasks.
+- Accessing external resources blocks the entire process (reading files from the HDD, querying a web service, etc).
 
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Synchronous work
+A real life example would be:
+- A man is doing a presentation for work.
+- His wife starts spamming him with random questions, just to get his attention.
+- A man can't give attention, because he maxed out his CPU resources on the work he is currently doing, so he is not-responding back to his wife. He is not even listening to what she says.
+- After his work is completed, he turns around with a cute smile and asks his wife - "Whatsup? :)", but he has no idea that 30 seconds ago with his silence he accidentally opened Pandora's box.
+
+
+
+
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Freezing UI
+## Live demo
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size: 0.9em;' } -->
+# Asynchronous work
+- In general, asynchronous (from Greek asyn-, meaning "not with," and chronos, meaning "time") is an adjective describing objects or events that are not coordinated in time.
+
+- In computer programs, asynchronous operation means that a process operates independently of other processes.
+
+- A program using asynchronous programming, dispatches tasks to devices that can take care of themselves, leaving the program free to do something else until it receives a signal that the work is completed.
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Asynchronous work
+- **Example:** A woman sits in a cafeteria and orders a coffee. While waiting for her coffee to be served, she is reading the morning newspaper.
+
+<!-- <img showInPresentation="true" class="slide-image" src="images/Async.png" style="top:34%; left:4%; width:65%; z-index:-1; border-radius: 5px; border: 1px solid white;" /> -->
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+- Not this one though, she already has a coffee.
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Asynchronous work
+- Example: This guys is asynchronously doing his laundry while reading Twilight.
+
+<!-- <img showInPresentation="true" class="slide-image" src="images/Async2.jpg" style="top:28%; left:4%; width:65%; z-index:-1; border-radius: 5px; border: 1px solid white;" /> -->
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+- Apparently, reading is the new black.
+
+
+
+
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Responsive UI
+## Live demo
+
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style: 'font-size:0.9em;' } -->
+# Parallel work
 
 
 
