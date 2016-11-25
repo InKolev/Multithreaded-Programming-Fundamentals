@@ -929,6 +929,32 @@ public class Counter
 
 
 
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Thread states
+## in the .NET managed environment
+
+
+
+<!-- attr: { id:'', showInPresentation:true, hasScriptWrapper:true, style:'font-size:0.8em;' } -->
+# Thread states
+- The ThreadState enumeration is of interest only in a few **debugging scenarios**. Your code should **never use the thread state to synchronize** the activities of threads.  
+
+- **ThreadState** defines a set of all possible execution states for threads. Once a thread is created, it is in **at least one of the states** until it terminates. Threads created within the CLR are initially in the **Unstarted** state.  
+
+- Not all combinations of ThreadState values are valid; for example, a thread cannot be in both the Aborted and Unstarted states.
+
+
+
+
+<!-- section start -->
+<!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
+# Thread states
+## Live demo
+
+
+
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:true, hasScriptWrapper:true } -->
 # Questions?
