@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8167D68D-C1C3-4D0A-A0E0-751A0592CAF0}</ProjectGuid>
+    <ProjectGuid>{E0CD1486-9DA7-4D0A-8A12-1428085A0AF3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LiveDemos</RootNamespace>
-    <AssemblyName>LiveDemos</AssemblyName>
+    <RootNamespace>_0.Live.Demos</RootNamespace>
+    <AssemblyName>_0.Live.Demos</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
