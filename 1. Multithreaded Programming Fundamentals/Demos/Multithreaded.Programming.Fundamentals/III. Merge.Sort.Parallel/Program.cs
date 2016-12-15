@@ -14,7 +14,7 @@ namespace III.Merge.Sort.Parallel
             Console.WriteLine("Loading array from file...");
             var array = LoadArrayFromFile("largeArray.txt");
             Console.WriteLine("Array loaded");
-      
+
             var stopwatch = Stopwatch.StartNew();
 
             Console.WriteLine("Started sorting the array");
@@ -26,12 +26,13 @@ namespace III.Merge.Sort.Parallel
 
             for (int i = 0; i < processorsCount; i++)
             {
+                // Cache the value of 'i' and use it
+                // in the newly created thread
                 var index = i;
 
                 var thread = new Thread(() =>
                 {
                     int[] arraySlice;
-
                     if (index == processorsCount - 1)
                     {
                         arraySlice = array.SubArray(index * elementsToSlice, elementsToSlice + elementsLeft);
@@ -46,7 +47,7 @@ namespace III.Merge.Sort.Parallel
                     var mergeSort = new MergeSort();
                     mergeSort.Sort(arraySlice);
                 });
-                thread.Start();
+                thread.Start(); // Doesn't execute immediately
                 threads.Add(thread);
             }
 

@@ -11,7 +11,7 @@ namespace I.Sum.Problem.Parallel
     {
         public static void Main(string[] args)
         {
-            var coresCount = Environment.ProcessorCount * 2;
+            var coresCount = Environment.ProcessorCount;
             var threads = new List<Thread>(coresCount);
             var arrayProcessors = new List<ArrayProcessor>(coresCount);
 
@@ -24,6 +24,7 @@ namespace I.Sum.Problem.Parallel
             // Run N Threads to deal with N SMALLER problems
             var elementsPerCore = arraySize / coresCount;
             var elementsLeftOver = arraySize % coresCount;
+
             for (int i = 0; i < coresCount; i++)
             {
                 var startIndex = i * elementsPerCore;
@@ -39,7 +40,6 @@ namespace I.Sum.Problem.Parallel
 
                 var thread = new Thread(arrayProcessor.CalculateSum);
                 threads.Add(thread);
-
                 thread.Start();
             }
 

@@ -16,7 +16,9 @@ namespace I.Sum.Problem
 
             var startIndex = 0;
             var elementsToProcessCount = arraySize;
+
             var arrayProcessor = new ArrayProcessor(array, startIndex, elementsToProcessCount);
+
             arrayProcessor.CalculateSum();
             var totalSum = arrayProcessor.CalculatedSum;
 

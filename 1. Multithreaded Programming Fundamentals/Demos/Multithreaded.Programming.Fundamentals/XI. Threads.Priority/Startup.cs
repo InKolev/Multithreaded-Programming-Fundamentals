@@ -11,7 +11,7 @@ namespace XI.Threads.Priority
         public static void Main(string[] args)
         {
             // Execute this code 20 times for more accurate result set
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 1; i++)
             {
                 var highPriorityThread = new Thread(DoWork);
                 highPriorityThread.Priority = ThreadPriority.Highest;
@@ -24,6 +24,10 @@ namespace XI.Threads.Priority
                 lowPriorityThread.Start(ConsoleColor.Yellow);
 
                 highPriorityThread.Join();
+
+
+                Console.WriteLine("After the JOIN");
+
                 lowPriorityThread.Join();
 
                 Console.ForegroundColor = ConsoleColor.White;

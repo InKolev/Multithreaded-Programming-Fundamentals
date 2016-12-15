@@ -35,6 +35,7 @@ namespace II.ResponsiveUI
         {
             try
             {
+                // CALLED BY THE MAIN THREAD
                 Task.Run(() =>
                 {
                     // Show the threadID that executes the following statement
@@ -44,18 +45,19 @@ namespace II.ResponsiveUI
                     {
                         // Show the thread id that executes the following statement
                         this.btnFreezeUI.Content = "Freezing...";
-
-                        var uiThreadId = Thread.CurrentThread.ManagedThreadId;
                     });
+                    
+                    var uiThreadId = Thread.CurrentThread.ManagedThreadId;
 
-                    Thread.Sleep(3000);
+                    // DOES REALLY LONG WORK
+                    Thread.Sleep(5000);
 
-                    Dispatcher.Invoke(() =>
+                    Dispatcher.Invoke(()=>
                     {
                         this.btnFreezeUI.Content = "UI has been frozen (Click to freeze again)";
-
-                        var uiThreadId = Thread.CurrentThread.ManagedThreadId;
                     });
+
+                    //var uiThreadId = Thread.CurrentThread.ManagedThreadId;
                 });
             }
             catch (Exception exc)
