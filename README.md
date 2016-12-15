@@ -31,16 +31,4 @@ Visual representation of Async, Parallel and Concurrent execution: http://urda.c
 ## Concurrent programming
 In concurrent computation two computations both advance independently of each other. The second computation doesn't have to wait until the first is finished for it to advance. It doesn't state however, the mechanism how this is achieved. In single-core setup, suspending and alternating between threads is required (also called pre-emptive multithreading).
 
-In parallel computation two computations both advance simultaneously - that is literally at the same time. This is not possible with single CPU (unless the single processor supports ) and requires multi-core setup instead.
-
-### Ползи и недостатъци  
-
-# Демо 1 (Еднонишково приложение)  
-
-# Демо 2 (Многонишково приложение)  
-
-# Демо 3 (Многонишково приложение на един процесор)  
-
-# Демо 4 (Многонишково приложение на множество процесори)  
-
-# Кога да се възползваме от многонишково програмиране  
+In parallel computation two computations both advance simultaneously - that is literally at the same time. This is not possible with single CPU (unless the single processor supports hyperthreading) and requires multi-core setup instead.
