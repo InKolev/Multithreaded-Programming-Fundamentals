@@ -1,3 +1,7 @@
+# Multithreaded programming fundamentals
+
+![Presentation Slides](https://cdn.rawgit.com/InKolev/Async-And-Parallel-Programming/master/1.%20Multithreaded%20Programming%20Fundamentals/index.html)
+
 ## Multitasking
 The ability to run several programs simultaneously, potentially by utilizing several processors, but predominantly, by time-sharing their resource requirements.
 
